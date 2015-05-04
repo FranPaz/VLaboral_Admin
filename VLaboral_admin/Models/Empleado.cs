@@ -9,26 +9,34 @@ namespace VLaboral_admin.Models
     {
         public int Id { get; set; }
         public int Dni { get; set; }
+        public string Cuil { get; set; }
         public String NombreApellido { get; set; }
-        public String CiudadDeOrigen { get; set; }
-        public String Pais { get; set; }
+        public DateTime FecNacimiento { get; set; }
         public String Email { get; set; }
         public String Direccion { get; set; }
         public int Telefono { get; set; }
+        //iafar: deberiamos poner la ocupacion aqui o en el curriculum?
 
+
+        //Relacion 1 a 1
+        public int CurriculumId { get; set; }
         public virtual Curriculum Curriculum { get; set; }
+
+        //iafar:Relacion 1 a muchos(1)
+        public int UbicacionActualId { get; set; }
+        public virtual UbicacionActual UbicacionActual { get; set; }
         
+        //iafar:Relacion 1 a muchos(1)
+        public int UbicacionOrigenId { get; set; }
+        public virtual UbicacionOrigen UbicacionOrigen { get; set; }
     }
 
     public class Curriculum
     {   
-        public int EmpleadoId { get; set; }
-
+        
         public int Id { get; set; }
         public String Habilidades { get; set; }
         public String Descripcion { get; set; }
-
-        public virtual Empleado Empleado { get; set; }
     }
 
 }
